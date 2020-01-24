@@ -1,16 +1,16 @@
 'use strict';
 
 var cloud = {
-  WIDTH : 420,
-  HEIGHT : 270,
-  X : 110,
-  Y : 10
-}
+  WIDTH: 420,
+  HEIGHT: 270,
+  X: 110,
+  Y: 10
+};
 
 var bar = {
-  WIDTH : 40,
-  height : 150
-}
+  WIDTH: 40,
+  height: 150
+};
 
 var GAP = 10;
 var FONT_GAP = 50;
@@ -31,7 +31,7 @@ var drawText = function (ctx, text, x, y, color, font) {
   ctx.fillText(text, x, y);
 };
 
-var getMaxElement = function(arr) {
+var getMaxElement = function (arr) {
   var maxElement = arr[0];
   for (var i = 0; i < arr.length; i++) {
     if (arr[i] > maxElement) {
@@ -41,7 +41,7 @@ var getMaxElement = function(arr) {
   return maxElement;
 };
 
-window.renderStatistics = function(ctx, players, times) {
+window.renderStatistics = function (ctx, players, times) {
   drawRect(ctx, cloud.X + GAP, cloud.Y + GAP, cloud.WIDTH, cloud.HEIGHT, 'rgba(0, 0, 0, 0.7)');
   drawRect(ctx, cloud.X, cloud.Y, cloud.WIDTH, cloud.HEIGHT, '#fff');
   drawText(ctx, 'Ура вы победили!', cloud.X + FONT_GAP, cloud.Y + GAP);
@@ -52,8 +52,8 @@ window.renderStatistics = function(ctx, players, times) {
     var barHeightItem = (bar.height * times[i]) / maxTime;
     var x = diagramStartX + barindented * i;
     var y = diagramStartY + bar.height - barHeightItem;
-    drawRect(ctx, x, y, bar.WIDTH, barHeightItem, players[i] == 'Вы' ? 'rgba(255, 0, 0.1)' : 'hsl(240, ' + Math.random() * 100 + '%, 50%)')
+    drawRect(ctx, x, y, bar.WIDTH, barHeightItem, players[i] === 'Вы' ? 'rgba(255, 0, 0.1)' : 'hsl(240, ' + Math.random() * 100 + '%, 50%)');
     drawText(ctx, Math.round(times[i]), x, y - GAP * 2);
     drawText(ctx, players[i], x, diagramStartY + bar.height + GAP);
   }
-}
+};
